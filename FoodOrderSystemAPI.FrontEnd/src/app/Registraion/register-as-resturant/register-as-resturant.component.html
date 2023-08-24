@@ -1,0 +1,259 @@
+<section
+  class="p-5 bg-cover bg-[url('assets/Images/new-banner.avif')] dark:bg-gray-900"
+>
+  <div
+    class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-5"
+  >
+    <div
+      class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
+    >
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <h3
+          class="text-primary-600 mb-2 text-center mt-0 text-3xl font-medium leading-tight"
+        >
+          Create An Account
+        </h3>
+        <form
+          [formGroup]="ResturantForm"
+          (ngSubmit)="submitForm()"
+          class="space-y-4 md:space-y-6"
+        >
+          <div>
+            <!-------------------------------- Start 2 Col Inputs ------------------------------ -->
+
+            <div class="mb-6">
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Resturant Name
+              </label>
+              <!-- Alert On InValid Email  -->
+
+              <p
+                *ngIf="ResturantName.invalid && ResturantName.touched"
+                class="text-red-500 text-xs italic"
+              >
+                Resturant Name Is Required
+              </p>
+              <input
+                type="text"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                formControlName="Name"
+                required
+              />
+            </div>
+
+            <div class="mb-6">
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Email Address</label
+              >
+              <!-- Alert On InValid Email  -->
+
+              <p
+                *ngIf="EmailAddress.invalid && EmailAddress.touched"
+                class="text-red-500 text-xs italic"
+              >
+                Enter Valid Email Address
+              </p>
+              <input
+                type="text"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                formControlName="Email"
+                required
+              />
+            </div>
+
+            <div class="mb-6">
+              <label
+                for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Password</label
+              >
+              <!-- Alert On InValid Password  -->
+
+              <p
+                *ngIf="ResturantPassword.invalid && ResturantPassword.touched"
+                class="text-red-500 text-xs italic"
+              >
+                Password Must be valid
+              </p>
+              <input
+                type="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="•••••••••"
+                formControlName="Password"
+                required
+              />
+            </div>
+
+            <div class="sm:col-span-2 mb-2">
+              <label
+                for="phone-number"
+                class="block text-sm font-semibold leading-6 text-gray-900"
+                >Phone number</label
+              >
+
+              <p
+                *ngIf="ResturantPhone.invalid && ResturantPhone.touched"
+                class="text-red-500 text-xs italic"
+              >
+                Phone Not Valid
+              </p>
+
+              <div class="relative mt-2.5">
+                <div class="absolute inset-y-0 left-0 flex items-center">
+                  <label for="country" class="sr-only">Country</label>
+                  <select
+                    id="country"
+                    name="country"
+                    class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-0 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+                  >
+                    <option>EG +20</option>
+                    <option>US +1</option>
+                    <option>EU +44</option>
+                  </select>
+                </div>
+                <input
+                  type="tel"
+                  formControlName="Phone"
+                  name="phone-number"
+                  id="phone-number"
+                  placeholder="000-0000-0000"
+                  autocomplete="tel"
+                  class="block w-full px-20 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Resturant Address</label
+              >
+              <!-- Alert On InValid Email  -->
+
+              <p
+                *ngIf="ResturantAddress.invalid && ResturantAddress.touched"
+                class="text-red-500 text-xs italic"
+              >
+                Not Valid Resturant Address
+              </p>
+              <input
+                type="string"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Address"
+                formControlName="Address"
+                required
+              />
+            </div>
+
+            <div class="col-span-full">
+              <label
+                for="cover-photo"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Product Image</label
+              >
+              <p
+                *ngIf="ResturnatLogo.invalid && ResturnatLogo.touched"
+                class="text-red-500 text-xs italic"
+              >
+                Required
+              </p>
+              <div
+                class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10"
+              >
+                <div class="text-center">
+                  <img [src]="this.RegisterService.RegisterResturant.logo " *ngIf="this.RegisterService.RegisterResturant.logo">
+                    
+                 
+                 
+                  <svg
+                     *ngIf="!this.RegisterService.RegisterResturant.logo"
+
+                    class="mx-auto h-12 w-12 text-gray-300"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <div
+                    class="mt-4 flex text-sm leading-6 text-gray-600"
+                  >
+                    <label
+                      for="file-upload"
+                      class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                    >
+                      <span>Upload a Image</span>
+                      <input
+                        id="file-upload"
+                        formControlName="ResturnatLogo"
+                        (change)="
+                          this.imageservice.uploadResturantPhoto($event)
+                        "
+                        name="file-upload"
+                        type="file"
+                        class="sr-only"
+                      />
+                    </label>
+                    <p class="pl-1">or drag and drop</p>
+                  </div>
+                  <p class="text-xs leading-5 text-gray-600">
+                    PNG, JPG, GIF up to 10MB
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Payment Mehods
+              </label>
+              <!-- Alert On InValid Email  -->
+
+              <p
+                *ngIf="
+                  ResturantPaymentMehods.invalid &&
+                  ResturantPaymentMehods.touched
+                "
+                class="text-red-500 text-xs italic"
+              >
+                Payment Method is required
+              </p>
+              <select
+                formControlName="PaymentMethods"
+                id="large"
+                class="block w-full px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option value="0" selected>Card</option>
+                <option value="1">Cash</option>
+                <option value="2">Both</option>
+              </select>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="w-full text-white bg-purple-500 hover:bg-purple-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+          >
+            Submit
+          </button>
+          <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+            Already have an account?
+            <a
+              [routerLink]="['../../authentcation/login']"
+              class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+              >Login here</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

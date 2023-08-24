@@ -1,0 +1,446 @@
+<div class="body">
+  <div class="container">
+    <div class="text-center h4">
+      <a href="#" class="cart-title">Your Cart &gt;</a>
+      <span class="checkout-text">Check out</span>
+    </div>
+    <br />
+
+    <!-- payment-logos -->
+    <div class="row col-12">
+      <fieldset
+        class="express-checkout-fieldset"
+        style="background-color: aqua"
+      >
+        <legend class="express-checkout-legend">You Can Checkout with</legend>
+        <div class="express-checkout">
+          <div
+            class="payment-logos d-flex justify-content-center flex-wrap gap-3"
+          >
+            <a href="#" class="payment-logo"
+              ><img src="../../assets/Images/ShopPay.png" alt="Shop Pay"
+            /></a>
+            <a href="#" class="payment-logo"
+              ><img src="../../assets/Images/GooglePay.png" alt="Google Pay"
+            /></a>
+            <a href="#" class="payment-logo"
+              ><img src="../../assets/Images/AmazonPay.webp" alt="Amazon Pay"
+            /></a>
+            <a href="#" class="payment-logo"
+              ><img src="../../assets/Images/Paypal.png" alt="PayPal"
+            /></a>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <br />
+
+    <div class="row col-12">
+      <div class="line line-left"></div>
+      <div class="content">
+        <p class="h5" style="background-color: whitesmoke">OR</p>
+      </div>
+      <div class="line line-right"></div>
+    </div>
+
+    <!-- CARD -->
+    <div class="row d-flex justify-content-between my-3 py-3">
+      <!-- FORM -->
+      <div class="col-12 col-md-7 my-5">
+        <!-- momken badl onSubmit tb2a PostOrder() -->
+        <form [formGroup]="checkoutForm">
+          <div class="checkout-container">
+            <div class="row">
+              <div>
+                <div class="mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center h5"
+                  >
+                    <b class="mb-0" style="font-size: 25px"
+                      >Contact Information</b
+                    >
+                    <h5 class="mb-0">
+                      Already have an account?
+                      <a
+                        href="http://localhost:4200/authentcation/login"
+                        style="color: blue"
+                        >Log in</a
+                      >
+                    </h5>
+                  </div>
+                  <br />
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                      formControlName="email"
+                    />
+                    <div
+                      *ngIf="
+                        formControls['email'].invalid &&
+                        (formControls['email'].dirty ||
+                          formControls['email'].touched)
+                      "
+                      class="error-message"
+                    >
+                      <div *ngIf="formControls['email'].errors?.['required']">
+                        Email is required.
+                      </div>
+                      <div *ngIf="formControls['email'].errors?.['email']">
+                        Invalid email format.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="sendUpdatesCheckbox"
+                    />
+                    <label class="form-check-label" for="sendUpdatesCheckbox"
+                      >Send me email and transaction SMS updates about my order.
+                      Msg & data rates may apply.</label
+                    >
+                  </div>
+                </div>
+                <br />
+                <div class="mb-3">
+                  <label for="exampleInputShipping" class="form-label h4"
+                    >Shipping Address</label
+                  >
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    id="exampleInputShipping"
+                    formControlName="shippingAddress"
+                  >
+                    <option value="" disabled selected>Country/Region</option>
+                    <option value="Cairo">Cairo</option>
+                    <option value="Giza">Giza</option>
+                    <option value="Alexandria">Alexandria</option>
+                  </select>
+                  <div
+                    *ngIf="
+                      formControls['shippingAddress'].invalid &&
+                      (formControls['shippingAddress'].dirty ||
+                        formControls['shippingAddress'].touched)
+                    "
+                    class="error-message"
+                  >
+                    <div
+                      *ngIf="formControls['shippingAddress'].errors?.['required']"
+                    >
+                      Shipping Address is required.
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="row g-3">
+                  <div class="col">
+                    <label for="firstNameInput" class="form-label"
+                      >First Name</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="First Name"
+                      class="form-control"
+                      id="firstNameInput"
+                      formControlName="firstName"
+                    />
+                    <div
+                      *ngIf="
+                        formControls['firstName'].invalid &&
+                        (formControls['firstName'].dirty ||
+                          formControls['firstName'].touched)
+                      "
+                      class="error-message"
+                    >
+                      <div
+                        *ngIf="formControls['firstName'].errors?.['required']"
+                      >
+                        First Name is required.
+                      </div>
+                      <div
+                        *ngIf="formControls['firstName'].errors?.['invalidName']"
+                      >
+                        First Name must be 3 letters or more and should not
+                        contain any numbers.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <label for="lastNameInput" class="form-label"
+                      >Last Name</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="Last Name"
+                      class="form-control"
+                      id="lastNameInput"
+                      formControlName="lastName"
+                    />
+                    <div
+                      *ngIf="
+                        formControls['lastName'].invalid &&
+                        (formControls['lastName'].dirty ||
+                          formControls['lastName'].touched)
+                      "
+                      class="error-message"
+                    >
+                      <div
+                        *ngIf="formControls['lastName'].errors?.['required']"
+                      >
+                        Last Name is required.
+                      </div>
+                      <div
+                        *ngIf="formControls['lastName'].errors?.['invalidName']"
+                      >
+                        Last Name must be 3 letters or more and should not
+                        contain any numbers.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="mb-3">
+                  <label for="addressInput" class="form-label">Address</label>
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    class="form-control"
+                    id="addressInput"
+                    formControlName="address"
+                  />
+                  <div
+                    *ngIf="
+                      formControls['address'].invalid &&
+                      (formControls['address'].dirty ||
+                        formControls['address'].touched)
+                    "
+                    class="error-message"
+                  >
+                    <div *ngIf="formControls['address'].errors?.['required']">
+                      Address is required.
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="mb-3">
+                  <label for="phoneInput" class="form-label">Phone</label>
+                  <input
+                    type="text"
+                    placeholder="Phone"
+                    class="form-control"
+                    id="phoneInput"
+                    formControlName="phone"
+                  />
+                  <div
+                    *ngIf="
+                      formControls['phone'].invalid &&
+                      (formControls['phone'].dirty ||
+                        formControls['phone'].touched)
+                    "
+                    class="error-message"
+                  >
+                    <div *ngIf="formControls['phone'].errors?.['required']">
+                      Phone is required.
+                    </div>
+                    <div *ngIf="formControls['phone'].errors?.['pattern']">
+                      Invalid phone number. Please enter a valid Egyptian phone
+                      number.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6"></div>
+            </div>
+          </div>
+        </form>
+
+        <br />
+        <div>
+          <b style="font-size: 20px">Payment Details</b>
+          <br />
+          <div class="d-flex justify-content-even">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                value="creditDebitCard"
+                id="creditDebitCard"
+                name="PaymentMethod"
+                [(ngModel)]="selectedPaymentMethod"
+                (change)="handlePaymentMethodChange($event)"
+              />
+              <label class="form-check-label" for="creditDebitCard">
+                Credit/Debit Card
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                value="cashOnDelivery"
+                id="cashOnDelivery"
+                name="PaymentMethod"
+                [(ngModel)]="selectedPaymentMethod"
+                (change)="handlePaymentMethodChange($event)"
+              />
+              <label class="form-check-label" for="cashOnDelivery">
+                Cash on Delivery
+              </label>
+            </div>
+          </div>
+          <div
+            class="row mt-4"
+            *ngIf="selectedPaymentMethod === 'creditDebitCard'"
+          >
+            <div class="col-lg-6 my-3 d-flex">
+              <div class="card flex-fill">
+                <div class="card-body" style="background-color: #e4a598">
+                  <h5 class="card-title">Add New Card</h5>
+                  <button (click)="openAddCardModal()" class="btn btn-primary">
+                    Add Card
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-6 my-3 d-flex"
+              *ngFor="let card of cards"
+              (click)="toggleCardSelection(card)"
+            >
+              <div
+                class="card flex-fill"
+                [class.selected]="selectedCard === card"
+                [ngClass]="{
+                  'bg-primary': isMasterCard(card.cardNumber),
+                  'bg-info': isVisaCard(card.cardNumber)
+                }"
+              >
+                <div class="card-body">
+                  <img
+                    src="../../assets/Images/Visa.png"
+                    class="payment-logo"
+                    style="width: 150px"
+                    alt="Shop Pay"
+                    *ngIf="isVisaCard(card.cardNumber) && selectedCard !== card"
+                  />
+                  <img
+                    src="../../assets/Images/MasterCard.png"
+                    class="payment-logo"
+                    style="width: 100px"
+                    alt="Shop Pay"
+                    *ngIf="
+                      isMasterCard(card.cardNumber) && selectedCard !== card
+                    "
+                  />
+                  <img
+                    src="../../assets/Images/Visa.png"
+                    class="payment-logo"
+                    style="width: 150px"
+                    alt="Shop Pay"
+                    *ngIf="isVisaCard(card.cardNumber) && selectedCard === card"
+                  />
+                  <img
+                    src="../../assets/Images/MasterCard.png"
+                    class="payment-logo"
+                    style="width: 100px"
+                    alt="Shop Pay"
+                    *ngIf="
+                      isMasterCard(card.cardNumber) && selectedCard === card
+                    "
+                  />
+                  <p class="card-text">
+                    **** **** **** {{ getCardLastFourDigits(card.cardNumber) }}
+                  </p>
+                  <p class="card-text">
+                    {{ formatExpiryDate(card.expiryMonth, card.expiryYear) }}
+                  </p>
+
+                  <div class="card-buttons">
+                    <button class="btn btn-danger" (click)="deleteCard(card)">
+                      Delete
+                    </button>
+                    <button class="btn btn-light" (click)="editCard(card)">
+                      Edit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--  End of CREDIT -->
+        </div>
+      </div>
+
+      <div class="col-12 col-md-3">
+        <div class="card-container flex-column d-flex align-items-center">
+          <div class="card" style="width: 18rem; background-color: wheat">
+            <b class="text-center" style="color: #b76e79; font-size: 20px"
+              >Order Summary</b
+            >
+            <div *ngFor="let item of cartService.CartItems">
+              <img [src]="item.product.img" class="card-img-top" alt="..." />
+              <p class="card-text">
+                {{ item.product.productname }} {{ item.product.price }}$.
+              </p>
+            </div>
+
+            <div class="card-body"></div>
+            <ul class="list-group">
+              <!-- Add your subtotal, shipping, and tax list items here -->
+            </ul>
+            <div class="card-body">
+              <ul class="list-group">
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  Total
+                  <!-- <span class="badge bg-danger rounded-pill">80$</span> -->
+                  <span class="badge bg-danger rounded-pill"
+                    >{{ cartService.TotalPrice }}$</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--  End of CARD -->
+    </div>
+
+    <!--  End of FORM -->
+
+    <!-- CREDIT -->
+
+    <br />
+    <div class="text-center pb-2">
+      <p-button (click)="PostOrder()" styleClass="p-button-warning"
+        >Proceed
+      </p-button>
+      <!-- <button
+        type="submit"
+        (click)="PostOrder()"
+        data-bs-toggle="button"
+        class="btn btn-primary"
+      >
+        Proceed
+      </button> -->
+    </div>
+
+    <!-- </form> -->
+
+    <!--  End of FORM -->
+    <br />
+  </div>
+</div>

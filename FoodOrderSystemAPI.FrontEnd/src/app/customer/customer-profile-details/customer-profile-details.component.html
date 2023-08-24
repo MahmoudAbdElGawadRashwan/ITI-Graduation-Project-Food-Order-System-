@@ -1,0 +1,58 @@
+<!-- style="max-width: 544px" -->
+<div class="flex items-center justify-center mt-5">
+  <div class="card col-md-10">
+    <div class="row no-gutters">
+      <div class="col-xs-10 col-4 col-lg-3">
+        <img
+          src="https://imglarger.com/Images/before-after/ai-image-enlarger-1-after-2.jpg"
+          class="card-img rounded-circle"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex flex-row justify-content-between">
+            <h5 class="card-title h1">My Profile</h5>
+            <button
+              pButton
+              pRipple
+              type="button"
+              pInitEditableRow
+              class="p-button-rounded p-button-text"
+            >
+              <i class="pi pi-user-edit"></i>
+            </button>
+          </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">Name</th>
+                <td>{{ _customer.fullName }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Email</th>
+                <td>{{ _customer.email }}</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Phone Number</th>
+                <td>{{ _customer.phone }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Birth Date</th>
+                <td>{{ _customer.customerBirth }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Card Number</th>
+                <td>{{ _customer.cardNumber }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

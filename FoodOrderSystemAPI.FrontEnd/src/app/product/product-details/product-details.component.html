@@ -1,0 +1,71 @@
+<div class="flex items-center justify-center" style="background: #edf2f7">
+  <section class="text-gray-700 body-font overflow-hidden bg-white">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="lg:w-4/5 mx-auto flex flex-wrap">
+        <img
+          alt="ecommerce"
+          class="lg:w-1/2 object-cover object-center rounded border border-gray-200"
+          [src]="product.img"
+        />
+        <div class="lg:w-1/2 lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+          <h2 class="text-sm title-font text-gray-500 tracking-widest">
+            {{ productCategory }}
+          </h2>
+          <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
+            {{ product.productname }}
+          </h1>
+          <div class="flex mb-4">
+            <p-rating
+              [(ngModel)]="productRating"
+              [readonly]="true"
+              [cancel]="false"
+            ></p-rating>
+            <span class="text-gray-600 ml-3">4 Reviews</span>
+          </div>
+          <p class="leading-relaxed">
+            {{ product.describtion }}
+          </p>
+          <div class="flex mt-6 items-center pb-5">
+            <div class="flex items-center">
+              <span class="mr-8">Size </span>
+              <div class="card flex justify-content-center ml-8">
+                <p-selectButton
+                  [options]="sizesOptions"
+                  [(ngModel)]="uiSizeValue"
+                  optionLabel="label"
+                  optionValue="value"
+                ></p-selectButton>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center pb-5 border-b-2 border-gray-200 mb-5">
+            <span class="mr-1">Quantity</span>
+
+            <p-inputNumber
+              [(ngModel)]="productQuantity"
+              [showButtons]="true"
+              buttonLayout="vertical"
+              spinnerMode="vertical"
+              inputId="vertical"
+              inputId="minmax-buttons"
+              [min]="0"
+              [max]="50"
+              decrementButtonClass="p-button-secondary"
+              incrementButtonClass="p-button-info"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              class="ml-8"
+            ></p-inputNumber>
+          </div>
+
+          <div class="flex flex-row justify-content-between">
+            <span class="title-font font-medium text-2xl text-gray-900">{{
+              "$" + product.price * productQuantity
+            }}</span>
+            <button class="p-button" (click)="addToCart()">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

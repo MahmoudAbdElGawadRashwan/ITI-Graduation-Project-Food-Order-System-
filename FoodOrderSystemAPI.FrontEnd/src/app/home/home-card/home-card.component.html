@@ -1,0 +1,30 @@
+<p-card class="d-inline-block my-3">
+    <ng-template pTemplate="header">
+        <img alt="Card" [src]="product.img" />
+    </ng-template>
+    
+    <div>
+        <h2 [routerLink]="['/product',product.productID]" [textContent]="product.productname" ></h2>
+        <h4 [routerLink]="['/restaurant',product.restaurantID]" [textContent]="product.restaurantName"></h4>
+    </div>
+
+    <div class="py-2">
+        <span *ngIf="!product.offer;else p1" >{{product.price| currency: 'EGP '}}</span>
+
+        <ng-template #p1>	
+                <span style="color:rgb(230, 2, 2)">{{product.price*product.offer| currency: 'EGP '}}</span>
+                <span> - </span>	
+                <span style="text-decoration: line-through;">{{product.price| currency: 'EGP '}}</span>
+        </ng-template>
+    </div>
+
+        <p-rating [(ngModel)]="product.rate" [readonly]="true" [cancel]="false"></p-rating>
+    <div class=" d-flex justify-content-between align-items-center">
+        <div *ngFor="let tag of product.tags ">
+            <p-tag class="mx-1">{{tag}}</p-tag>
+        </div>
+    
+        <i class="pi pi-shopping-cart mx-2" (click)="addToCart()" ></i>
+    </div>
+    
+</p-card>

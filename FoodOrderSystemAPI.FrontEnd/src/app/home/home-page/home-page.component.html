@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row searchDiv headerDiv">
+        
+        <div class=" searchDiv headerDiv col-12 d-flex justify-content-center justify-content-lg-between align-items-center py-5 container-fluid ">
+            <img class="d-none d-lg-block" id="left-img" src="https://grassrunfarms.com/wp-content/uploads/2015/07/foodservice-food-plate.png" alt="">
+            <div class="d-flex justify-content-center flex-grow-1">
+                <span>
+                    <input class="flex-grow-1" type="text" [(ngModel)]="searchString" (keyup.enter)="getFilterdCards(null)" pInputText placeholder=" search for any product" class="rounded-3"/>
+                    <i class="pi pi-search px-2" (click)="getFilterdCards(null)"></i>
+                </span>
+            </div>
+            <img id="right-img" class="d-none d-lg-block" src="https://www.nicepng.com/png/full/54-546030_food-top-view-png-jpg-black-and-white.png" alt="">
+        </div>
+    </div>
+
+<div class="container ">
+    
+
+    <div class="my-2 row">
+    <app-home-restaurants ></app-home-restaurants>
+
+    </div>
+    
+    <div class="row my-4 ">
+        <app-home-filter [Categories]="filterCategories" [Restaurants]="filterRestaurants" (OnFilter)="getFilterdCards($event)" class="col-12 col-md-3"></app-home-filter>
+        <div class="col-12 col-md-9 d-flex flex-row justify-content-evenly flex-wrap">
+            <app-home-card *ngFor="let product of productsList" [product]="product" ></app-home-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+        <div class="card py-4 headerdiv" *ngIf="restaurantDetails" >
+            <div class="row">
+                <div class="col-1"></div>
+                <div class=" col-7">
+                    <img class="mx-5" [src]="restaurantDetails.logo" alt="Image" >
+                </div>
+                <div class="d-flex justify-content-center align-items-center flex-column col-4">
+                            <div>
+                                <button (click)="redirectToEditPage()"
+                                    type="button"
+                                    data-te-ripple-init
+                                    data-te-ripple-color="light"
+                                    *ngIf="checkUser()"
+                                    class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">
+                                    edit
+                                </button>
+
+                            </div>
+                    <h1 class="my-2">{{ restaurantDetails.restaurantName }}</h1>
+                    <h2 class="my-1">{{ restaurantDetails.email }}</h2>
+                    <h2 class="my-1">{{ restaurantDetails.address }}</h2>
+                    <h2 class="my-1">{{ restaurantDetails.phone }}</h2>
+                </div>
+
+            </div>
+        </div>

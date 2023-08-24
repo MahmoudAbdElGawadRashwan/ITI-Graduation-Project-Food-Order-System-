@@ -1,0 +1,19 @@
+/* Use Tailwind Library  */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~primeng/resources/themes/saga-orange/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import "primeicons/primeicons.css";
+
+
+*{
+    color: #2A2C41;
+    font-family: 'Cairo';
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}

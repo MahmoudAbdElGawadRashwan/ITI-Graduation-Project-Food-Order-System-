@@ -1,0 +1,33 @@
+/* .card img {
+    object-fit: contain;
+} */
+
+/* @media (min-width: 576px) {
+    .card {
+        width: 10vw; 
+        height: 15vh; 
+    }
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 20vw; 
+        height: 25vh; 
+    }
+}
+
+@media (min-width: 992px) {
+    .card {
+        width: 24vw; 
+        height: 32.5vh; 
+    }
+} */
+img {
+    height:100% !important;
+    object-fit: contain;    
+}
+
+p-card {
+    height: 200px ;
+
+}

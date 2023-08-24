@@ -1,0 +1,45 @@
+<div class="container py-5 ">
+            <app-restaurant-details></app-restaurant-details>
+    <div class="row my-4 ">
+        <app-restaurant-filter (OnFilter)="getFilterdCards($event)" [Categories]="filterCategories" class="col-12 col-md-3"></app-restaurant-filter>
+        
+        <div class="col-12 col-md-9 ">
+            <div class="row" *ngIf="checkUser() else d1">
+                <div class="d-flex justify-content-between">
+                 
+                    <div>
+                      
+                        <p-button (onClick)="redirectToAddPage()">add</p-button>
+                    </div>
+                    <div>
+                        <span>
+                            <input type="text" [(ngModel)]="searchString" (keyup.enter)="getFilterdCards(null)" pInputText placeholder="Search for any product" class="rounded-3" />
+                            <i class="pi pi-search px-2" (click)="getFilterdCards(null)"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <ng-template #d1 class="row">				
+                <div class="d-flex justify-content-between ">
+                    <a [routerLink]="['/ResturantOrders']" *ngIf="this.authentcationService.UserLogin!.Role == 'Resturant'" routerLinkActive="router-link-active"  class="col-4 btn bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" >
+                   Get Orders
+                    </a>
+                    <a [routerLink]="['/addproduct']" *ngIf="this.authentcationService.UserLogin!.Role == 'Resturant'" routerLinkActive="router-link-active"  class="col-4 btn bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" >
+                   Add  Product
+                    </a>
+                    <span>
+                        <input type="text" [(ngModel)]="searchString" (keyup.enter)="getFilterdCards(null)" pInputText placeholder="Search for any product" class="rounded-3" />
+                        <i class="pi pi-search px-2" (click)="getFilterdCards(null)"></i>
+                    </span>
+                </div>
+            </ng-template>
+
+            <div class="row">
+                <app-rest-card class="col-3" *ngFor="let product of _products.products" [product]="product" ></app-rest-card>
+            </div>
+        </div>
+    </div>
+</div>

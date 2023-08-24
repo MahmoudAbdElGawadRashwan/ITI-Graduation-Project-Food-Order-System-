@@ -1,0 +1,68 @@
+
+<div class="card-container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Add New Card</h5>
+      <form [formGroup]="cardForm" (ngSubmit)="saveCard()">
+        <div class="mb-3">
+          <label for="cardNumberInput" class="form-label">Card Number</label>
+          <input type="text" class="form-control" id="cardNumberInput" formControlName="cardNumber" (input)="onCardNumberInput($event)">
+          <div *ngIf="cardForm.controls['cardNumber'].invalid && (cardForm.controls['cardNumber'].dirty || cardForm.controls)" class="error-message">
+            <div *ngIf="cardForm.controls['cardNumber'].errors?.['required']">
+              Card number is required.
+            </div>  
+            
+            <div *ngIf="formControls['cardNumber'].errors?.['invalidCardNumber']">
+              Please enter a valid 16-digit card number.
+              </div>
+                    
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="cardNameInput" class="form-label">Card Name</label>
+          <input type="text" class="form-control" id="cardNameInput" formControlName="cardName">
+  
+        </div>
+        <div class="mb-3">
+          <label for="expiryMonthInput" class="form-label">Expiry Date</label>
+          <div class="d-flex align-items-center">
+            <select class="form-select me-2" id="expiryMonthInput" formControlName="expiryMonth">
+              <option value="" disabled selected>Select Month</option>
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>           
+              <option value="12">December</option>
+            </select>
+            <select class="form-select" id="expiryYearInput" formControlName="expiryYear">
+              <option value="" disabled selected>Select Year</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>             
+              <option value="2031">2031</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="cvvInput" class="form-label">CVV</label>
+          <input type="text" class="form-control" id="cvvInput" formControlName="cvv">
+        </div>
+        <button type="submit" class=" btn bg-sky-500 hover:bg-sky-700" [disabled]="!cardForm.valid">Save Card</button>
+      </form>
+           
+
+    </div>
+  </div>
+</div>

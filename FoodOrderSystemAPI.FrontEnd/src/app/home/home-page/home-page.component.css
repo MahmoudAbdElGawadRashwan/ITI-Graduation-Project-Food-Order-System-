@@ -1,0 +1,26 @@
+.searchDiv{
+    background-color: #FDBF50;
+}
+input::placeholder {
+    color: #999999; 
+    font-style: italic; 
+    font-size: 14px;
+}
+
+i:hover{
+    cursor: pointer;
+}
+
+#left-img{
+    height: 43vh;
+    transform: translate(-50%,0 );
+}
+#right-img{
+    height: 45vh;
+    transform: translate(50%,0 );
+}
+
+input{
+    width: 40vh;
+}
+

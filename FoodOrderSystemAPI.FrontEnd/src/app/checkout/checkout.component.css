@@ -1,0 +1,211 @@
+.body{
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.selected {
+  border: 4px solid black;
+}
+
+.error-message {
+  color: red;
+}
+
+
+
+
+.line-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 50%;          /* the width of the line */
+
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #000;
+}
+
+.line-left {
+  margin-right: 10px;
+}
+
+.line-right {
+  margin-left: 10px;
+}
+
+.content {
+  position: relative;
+  padding: 0 10px;
+}
+
+.content p {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 0 5px;
+}
+
+
+.express-checkout-fieldset {
+  width: 50%;
+  margin: 25px auto;
+  box-sizing:border-box;
+  text-align: center;
+  border-radius: 8px;
+  background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 3px, transparent 3px) 0% 0%/8px 8px no-repeat,
+              radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 3px, transparent 3px) 100% 0%/8px 8px no-repeat,
+              radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 3px, transparent 3px) 0% 100%/8px 8px no-repeat,
+              radial-gradient(circle at 0 0, #ffffff 0, #ffffff 3px, transparent 3px) 100% 100%/8px 8px no-repeat,
+              linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 10px) calc(100% - 16px) no-repeat,
+              linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 16px) calc(100% - 10px) no-repeat,
+              linear-gradient(147deg, transparent 25%, #48abe0 25%, #48abe0 50%, transparent 50%, transparent 75%, #48abe0 75%)
+              
+}
+
+
+.express-checkout {
+  margin-bottom: 20px;
+  padding: 40px;
+}
+
+.express-checkout-legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+
+.payment-logo {
+  text-align: center;
+}
+
+
+
+
+.payment-logos {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+}
+
+.payment-logo {
+  margin: 0 10px;
+}
+
+.payment-logo img {
+  width: 80px; /* Adjust the size as needed */
+}
+
+.checkout-container {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    /* padding: 70px; 
+    margin-bottom: 50px; 
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0; */
+  }
+  
+  /* #button1{
+
+    position: relative;
+    left:86%;
+    
+  }
+   */
+  a{
+    text-decoration: none;
+  }
+  .checkout-form {
+    /* Add your form styles here */
+  }
+  
+  .checkout-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-title {
+    /* Add your cart title styles here */
+    /* Example styles */
+    font-weight: bold;
+    color: blue;
+    margin-right: 10px;
+  }
+  
+  .checkout-text {
+    /* Add your checkout text styles here */
+    /* Example styles */
+    font-style: italic;
+    color: green;
+  }
+
+
+
+
+
+
+
+  
+  .box {
+    width: 100%;
+    height: 200px;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+  }
+  
+
+  
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+    
+    .box {
+      height: 150px;
+    }
+  }
+  
+
+  @media (max-width: 576px) {
+    .container {
+      padding: 5px;
+    }
+    
+    .box {
+      height: 100px;
+    }
+  }
+  
+
+  @media (max-width: 480px) {
+    .box {
+      height: 80px;
+    }
+  }
+  
+
+  @media (max-width: 320px) {
+    .box {
+      height: 60px;
+    }
+  }
+
+
+

@@ -1,0 +1,36 @@
+    <div>
+        <span>
+            <h3>filter</h3>
+            <i class="pi pi-sliders-h px-2"></i>
+        </span>
+        
+        <p-panel header="Category" styleClass="p-panel-danger" [toggleable]="true" [collapsed]="true">
+            <div *ngFor="let category of Categories" class="field-checkbox">
+                <p-checkbox name="Category" [value]="category" [label]="category" [(ngModel)]="selectedCategories"></p-checkbox>
+            </div>
+            <div class="d-flex justify-content-end">
+                <p-button (onClick)="filter()">set</p-button>
+            </div>
+        </p-panel>
+
+        <p-panel header="Restaurant" [toggleable]="true" [collapsed]="true">
+            <div *ngFor="let restaurant of Restaurants" class="field-checkbox">
+                <p-checkbox name="Restaurant" [value]="restaurant" [label]="restaurant" [(ngModel)]="selectedRestaurants"></p-checkbox>
+            </div>
+            <div class="d-flex justify-content-end">
+                <p-button (onClick)="filter()">set</p-button>
+            </div>
+        </p-panel>
+
+        <p-panel header="Price" [toggleable]="true" [collapsed]="true">
+            <p-slider (onChange)="updateSlider()" [(ngModel)]="rangeValues" [range]="true"></p-slider>
+            <div class="d-flex justify-content-between">
+                <span>{{rangeValues[0]}}</span>
+                <span>{{rangeValues[1]}}</span>
+            </div>
+            <div class="d-flex justify-content-center">
+                <p-button (onClick)="filter()">set</p-button>
+            </div>
+            
+        </p-panel>
+    </div>

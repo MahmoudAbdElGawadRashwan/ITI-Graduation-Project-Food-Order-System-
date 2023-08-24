@@ -1,0 +1,17 @@
+.p-steps .p-steps-item .p-menuitem-link{
+    background-color: transparent !important;
+
+}
+.p-steps .p-steps-item .p-menuitem-link .p-steps-title{
+    color: #FFF;
+   font-weight: bold;
+}
+/* .p-steps .p-steps-item.p-highlight .p-steps-title{
+    color: #a855f7;
+} */
+.bghight{
+    height: calc(100vh - 168px) !important;
+}
+.p-steps{
+margin-bottom: 3rem !important;
+} 
